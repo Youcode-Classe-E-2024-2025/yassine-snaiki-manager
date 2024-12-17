@@ -3,7 +3,9 @@
 $routes = [
     "/"=>"controllers/dashboard.php",
     "/dashboard"=>"controllers/dashboard.php",
+    "/admin-dashboard"=>"controllers/admin-dashboard.php",
     "/login"=>"controllers/login.php",
+    "/signup"=>"controllers/signup.php",
     "/logout"=>"controllers/logout.php",
 ];
 

@@ -1,9 +1,15 @@
 
 <?php require "views/partials/head.php" ?>
-<div class="flex h-[100dvh]">
-<?php require "views/partials/sidebar.php" ?>
+<nav class="w-full bg-cyan-400  py-2 px-4">
+<div class="max-w-[1200px] flex justify-between mx-auto">
+<h2 class="text-4xl font-bold">Admin</h2>
+<a href="/logout" class=" px-3 py-1 bg-slate-200 text-black w-fit text-lg font-semibold flex items-center gap-4 hover:bg-gray-600 hover:text-white transition-colors">
+       <img src="images/logout.png" alt="logout" class="w-5">    
+       Log out</a>
+</div>
+</nav>
 <main class=" basis-full p-10">
-    <h2 class="text-4xl font-bold">Dashboard</h2>
+    
     <ul class="flex justify-between mt-10 text-lg font-semibold">
         <div class="basis-[30%]">
             <h3 class="text-center mb-4">Balance</h3>
@@ -26,6 +32,5 @@
         
     </ul>
 </main>
-</div>
 <?php require "views/partials/footer.php" ?>
 

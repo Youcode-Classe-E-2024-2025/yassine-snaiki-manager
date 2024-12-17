@@ -1,7 +1,18 @@
 <?php require "views/partials/head.php" ?>
 <div class="mx-auto w-[500px] mt-10">
-<h3 class="text-center font-bold text-3xl">Sign In</h3>
-    <form action="/login" method="POST" class="space-y-4">
+    <h3 class="text-center font-bold text-3xl">Sign Up</h3>
+    <form action="" method="POST" class="space-y-4">
+        <div>
+            <label for="username" class="block text-sm font-medium text-white">User name</label>
+            <input 
+            type="text" 
+            id="username" 
+            name="username" 
+            required 
+            class="w-full px-4 py-2 mt-2 text-gray-800 bg-gray-100 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="username"
+            />
+        </div>
         <div>
             <label for="email" class="block text-sm font-medium text-white">Email Address</label>
             <input 
@@ -24,6 +35,17 @@
             placeholder="********"
             />
         </div>
+        <div>
+            <label for="confirm_password" class="block text-sm font-medium text-white">Confirm password</label>
+            <input 
+            type="password" 
+            id="confirm_password" 
+            name="confirm_password" 
+            required 
+            class="w-full px-4 py-2 mt-2 text-gray-800 bg-gray-100 border rounded-md focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+            placeholder="********"
+            />
+        </div>
         <div class="flex items-center justify-between">
             <label class="flex items-center text-sm">
                 <input type="checkbox" class="w-4 h-4 text-indigo-500 border-gray-300 rounded focus:ring-2 focus:ring-indigo-400">
@@ -34,12 +56,12 @@
         <button 
         type="submit" 
         class="w-full px-4 py-2 text-white bg-indigo-500 rounded-md hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-        Sign In
+        Submit
     </button>
         <a
-        href="/signup"     
+        href="/login"     
         class="w-full block text-center px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2">
-        Sign Up
+        Already have an account
     </a>
 </form>
 </div>

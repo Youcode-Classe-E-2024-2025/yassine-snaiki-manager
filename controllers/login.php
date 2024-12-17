@@ -9,28 +9,30 @@ global $db;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $username = $_POST['username'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
 
-    $username = trim(htmlspecialchars($username));
+    $username = trim(htmlspecialchars($email));
     $password = trim(htmlspecialchars($password));
 
 
-    $user = $db->query("SELECT * FROM admins WHERE username = ?", [$username])->fetch();
-    
+    $user = $db->query("SELECT u.id as id,u.name as name,u.password as password,u.email as email,r.name as role FROM users u JOIN roles r ON u.id = r.user_id  WHERE email = ?", [$email])->fetch();
     if ($user) {
-        echo "0000" === $user['password'];
-
-        if ($password === $user['password']) {
-
+        if (password_verify($password,$user['password'])) {
             session_start();
             $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-
-            header("Location: /dashboard");
+            $_SESSION['role'] = $user['role'];
+            echo $user['name'], $user['role'];
+            if($user['role'] === 'u'){         
+                header("Location: /dashboard");
+            }
+            else {
+                header("Location: /admin-dashboard");
+            }
             exit();
-        } else {
+        } 
+        else {
             echo "Invalid password!";
         }
     } else {
