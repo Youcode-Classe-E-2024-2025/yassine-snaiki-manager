@@ -1,7 +1,5 @@
 <?php
 
-
-echo "hi";
 global $db;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
@@ -10,9 +8,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $password = trim(htmlspecialchars($_POST['password']));
 
     if(!empty($username)&&!empty($email)&&!empty($password)){
-        $id = $db->query('INSERT INTO users(name,email,password) values(?,?,?) returning id',[$username,$email,password_hash($password,PASSWORD_DEFAULT)])->fetch()['id'];
-        $db->query('INSERT INTO roles(name,user_id) values(?,?)',['u',$id]);
-        header('Location: /login');
+        $id = $db->query('INSERT INTO users(name,email,password) values(?,?,?) returning id;',[$username,$email,password_hash($password,PASSWORD_DEFAULT)])->fetch()['id'];
+        $db->query('INSERT INTO roles(name,user_id) values(?,?);',['u',$id]);
     }
 }
 
