@@ -1,5 +1,10 @@
 <?php require "views/partials/head.php" ?>
-<div class="mx-auto w-[500px] mt-10">
+
+<div class="mx-auto w-[500px] mt-10 relative min-h-[100dvh]">
+    <div class=" min-w-32 min-h-32 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-100%] bg-slate-600 shadow-md rounded-full flex justify-center items-center hidden" id="checked">
+        <!-- <img src="images/check.png" class="w-20" alt="checked"> -->
+         SUBMITTING...
+    </div>
 <h3 class="text-center font-bold text-3xl">Sign In</h3>
     <form action="/login" method="POST" class="space-y-4">
         <div>
@@ -42,5 +47,13 @@
         Sign Up
     </a>
 </form>
+<div id="message" class=" text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md hidden"></div>
+<?php
+if(isset($_SESSION['message'])){
+    echo "<div  class='message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md'>{$_SESSION['message']}</div>"; 
+    unset($_SESSION['message']);
+}
+ ?>
 </div>
+<script src="scripts/login.js"></script>
 <?php require "views/partials/footer.php"?>     

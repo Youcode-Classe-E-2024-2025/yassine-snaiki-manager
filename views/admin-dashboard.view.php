@@ -1,36 +1,33 @@
-
 <?php require "views/partials/head.php" ?>
-<nav class="w-full bg-cyan-400  py-2 px-4">
-<div class="max-w-[1200px] flex justify-between mx-auto">
-<h2 class="text-4xl font-bold">Admin</h2>
-<a href="/logout" class=" px-3 py-1 bg-slate-200 text-black w-fit text-lg font-semibold flex items-center gap-4 hover:bg-gray-600 hover:text-white transition-colors">
-       <img src="images/logout.png" alt="logout" class="w-5">    
-       Log out</a>
-</div>
-</nav>
-<main class=" basis-full p-10">
-    
-    <ul class="flex justify-between mt-10 text-lg font-semibold">
-        <div class="basis-[30%]">
-            <h3 class="text-center mb-4">Balance</h3>
-            <div class="w-full bg-cyan-600 h-20 rounded-sm flex justify-center items-center text-4xl font-semibold">
-                $450.00
-            </div>
-        </div>
-        <div class="basis-[30%]">
-            <h3 class="text-center mb-4">Total deposits</h3>
-            <div class="w-full bg-cyan-600 h-20 rounded-sm flex justify-center items-center text-4xl font-semibold">
-                $450.00
-            </div>
-        </div>
-        <div class="basis-[30%]">
-            <h3 class="text-center mb-4">total withdrawals</h3>
-            <div class="w-full bg-cyan-600 h-20 rounded-sm flex justify-center items-center text-4xl font-semibold">
-                $450.00
-            </div>
-        </div>
-        
-    </ul>
-</main>
-<?php require "views/partials/footer.php" ?>
+<div class="flex h-[100dvh]">
+<?php require "views/partials/sidebar.php" ?>
+<main class=" basis-full ">
+<h2 class="text-3xl font-semibold pl-20 pt-5">Dashboard</h2>
+<ul class="flex flex-col gap-1 w-full px-10 mt-10">
 
+    <?php 
+    if(count($users) === 0)
+           echo "<li class='flex items-center text-xl font-semibold bg-cyan-600 px-10 justify-between'>
+                 No users exist
+                 </li>";
+    foreach($users as $user) : ?>
+            <li class="flex items-center text-xl font-semibold bg-cyan-600 px-10 justify-between">
+                <p><?=$user['name']?></p>
+                <p><?=$user['email']?></p>
+                <div class="flex gap-10">
+                <button class=" bg-green-500 rounded-md px-2 py-1 text-lg font-medium my-1 hover:bg-green-700 transition-colors">message</button>
+                <form action="" method="POST" >
+                    <input type="hidden" name="hidden" id="hidden" value="archive">
+                    <input type="hidden" name="id" id="id" value="<?=$user['id']?>">
+                    <button class="bg-red-500 hover:bg-red-700 rounded-md px-2 py-1 text-lg font-medium my-1  transition-colors">archive</button>
+                </form>
+                </div>
+            </li>
+    <?php endforeach?>
+        </ul>
+
+        
+    
+</main>
+</div>
+<?php require "views/partials/footer.php" ?>
