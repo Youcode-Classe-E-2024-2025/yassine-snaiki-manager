@@ -1,7 +1,18 @@
 <?php require "views/partials/head.php" ?>
-<div class="mx-auto w-[500px] mt-10">
+<div class="mx-auto w-[500px] mt-10 relative min-h-[100dvh]">
+    <div class="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-70%] flex flex-col justify-center items-center w-full <?=!$signedup ?'hidden':'' ?>" id="checked">
+        <div class=" w-32 h-32  bg-slate-600 shadow-md rounded-full flex flex-col justify-center items-center " >
+            <img src="images/check.png" class="w-20" alt="checked">
+        </div>
+        <p class="text-center font-semibold text-lg">Your request has been submited <br/> wait for approval</p>
+        <a
+        href="/login"     
+        class="w-full block text-center px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2 mt-10">
+        return to login page
+    </a>
+    </div>
     <h3 class="text-center font-bold text-3xl">Sign Up</h3>
-    <form action="" method="POST" class="space-y-4">
+    <form action="" method="POST" class="space-y-4 <?=$signedup ?'hidden':'' ?>">
         <div>
             <label for="username" class="block text-sm font-medium text-white">User name</label>
             <input 
@@ -65,4 +76,5 @@
     </a>
 </form>
 </div>
+<script src="scripts/signup.js"></script>
 <?php require "views/partials/footer.php"?>     

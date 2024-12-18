@@ -1,4 +1,11 @@
 <?php
+session_start();
+if(isset($_SESSION['signedup'])) {
+    $signedup = true;
+    unset($_SESSION['signedup']);
+}else{
+    $signedup = false;
+}
 
 global $db;
 
@@ -10,6 +17,9 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(!empty($username)&&!empty($email)&&!empty($password)){
         $id = $db->query('INSERT INTO users(name,email,password) values(?,?,?) returning id;',[$username,$email,password_hash($password,PASSWORD_DEFAULT)])->fetch()['id'];
         $db->query('INSERT INTO roles(name,user_id) values(?,?);',['u',$id]);
+        $_SESSION['signedup'] = true;
+        header('Location: /signup');
+        exit();
     }
 }
 

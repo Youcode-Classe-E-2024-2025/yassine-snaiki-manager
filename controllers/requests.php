@@ -13,6 +13,10 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $id = $_POST['id'];
         $db->query('UPDATE users SET isconfirmed = true WHERE id = ?',[$id]);
     }
+    if($_POST['hidden'] === 'reject' && !empty($_POST['id'])){
+        $id = $_POST['id'];
+        $db->query('DELETE FROM users WHERE id = ?',[$id]);
+    }
     header('Location: /requests');
     exit();
 }

@@ -16,5 +16,12 @@ if($_SERVER['REQUEST_METHOD']==='POST'){
         header('Location: /admin-dashboard');
         exit();
     }
+    if($_POST['hidden']==="message" && !empty($_POST['id']) && !empty($_POST['message'])) {
+        $id = $_POST['id'];
+        $message = trim(htmlspecialchars($_POST['message']));
+        $db->query('INSERT INTO messages(text,user_id) values(?,?)',[$message,$id]);
+        header('Location: /admin-dashboard');
+        exit();
+    }
 }
 require_once "views/admin-dashboard.view.php";
