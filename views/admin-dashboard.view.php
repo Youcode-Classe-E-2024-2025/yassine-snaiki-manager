@@ -31,7 +31,7 @@
                 <form action="" method="POST" >
                     <input type="hidden" name="hidden" id="hidden" value="archive">
                     <input type="hidden" name="id" id="id" value="<?=$user['id']?>">
-                    <button class="bg-red-500 hover:bg-red-700 rounded-md px-2 py-1 text-lg font-medium my-1  transition-colors">archive</button>
+                    <button type="submit" class="bg-red-500 hover:bg-red-700 rounded-md px-2 py-1 text-lg font-medium my-1  transition-colors">archive</button>
                 </form>
                 </div>
             </li>

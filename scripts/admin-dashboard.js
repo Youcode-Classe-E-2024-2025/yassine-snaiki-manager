@@ -3,7 +3,6 @@ const formMessage = document.querySelector('.form-message');
 const cancelMessage = document.querySelector('.cancel-message');
 
 usersCnt.addEventListener('click',e=>{
-    e.preventDefault();
     if(!e.target.matches('.btn-message')) return;
     const id = e.target.dataset.id;
     const name = e.target.dataset.name;

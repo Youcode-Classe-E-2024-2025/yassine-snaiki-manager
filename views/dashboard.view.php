@@ -34,10 +34,10 @@
                  </li>";
     foreach($movements as $movement) : ?>
             <li class="flex items-center text-xl font-semibold bg-cyan-600 px-10 justify-between">
-                <p>$<?=$movement['amount']?></p>
-                <p><?=$movement['created_at']?></p>
-                <p><?=$movement['type']?></p>
-                
+                <p class="<?=$movement['type']==='d' ? 'text-green-300':'text-red-300'?>">$<?=$movement['amount']?></p>
+                <p><?=$movement['created_at']?></p> 
+                <img src="<?=$movement['type'] === 'd'? 'images/arrowup.png' : 'images/arrowdown.png'?>" class="w-5" alt="up">   
+                      
             </li>
     <?php endforeach?>
         
