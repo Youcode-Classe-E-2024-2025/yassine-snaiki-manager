@@ -2,11 +2,11 @@
 
 <div class="mx-auto w-[500px] mt-10 relative min-h-[100dvh]">
     <div class=" min-w-32 min-h-32 absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-100%] bg-slate-600 shadow-md rounded-full flex justify-center items-center hidden" id="checked">
-        <!-- <img src="images/check.png" class="w-20" alt="checked"> -->
          SUBMITTING...
     </div>
 <h3 class="text-center font-bold text-3xl">Sign In</h3>
     <form action="/login" method="POST" class="space-y-4">
+        <input class='hidden' type="hidden" name='csrf_token' value="<?=$_SESSION['csrf_token']?>">
         <div>
             <label for="email" class="block text-sm font-medium text-white">Email Address</label>
             <input 
@@ -30,11 +30,7 @@
             />
         </div>
         <div class="flex items-center justify-between">
-            <label class="flex items-center text-sm">
-                <input type="checkbox" class="w-4 h-4 text-indigo-500 border-gray-300 rounded focus:ring-2 focus:ring-indigo-400">
-                <span class="ml-2 text-gray-600">Remember Me</span>
-            </label>
-            <a href="#" class="text-sm text-indigo-500 hover:underline">Forgot Password?</a>
+            
         </div>
         <button 
         type="submit" 
@@ -47,11 +43,10 @@
         Sign Up
     </a>
 </form>
-<div id="message" class=" text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md hidden"></div>
+<div id="message" class="message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md hidden"></div>
 <?php
-if(isset($_SESSION['message'])){
-    echo "<div  class='message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md'>{$_SESSION['message']}</div>"; 
-    unset($_SESSION['message']);
+if(isset($message)){
+    echo "<div  class='message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md'>$message</div>"; 
 }
  ?>
 </div>

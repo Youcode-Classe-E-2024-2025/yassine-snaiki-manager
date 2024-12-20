@@ -12,4 +12,4 @@ class Database {
 }
 
 $dsn = 'pgsql:host=localhost;port=8885;dbname=usersmanager;user=postgres;password=0000;';
-$db = new Database($dsn);;
+$db = new Database($dsn);

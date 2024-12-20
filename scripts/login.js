@@ -1,6 +1,13 @@
 const loginForm = document.querySelector('form');
 const checked = document.querySelector('#checked');
 
+const messages = document.querySelectorAll('.message');
+
+setTimeout(()=>{
+    messages.forEach(message=>message?.classList.add('hidden'));
+},4000);
+
+
 loginForm.addEventListener('submit', async function (e) {
     e.preventDefault();
     showMessage('');
