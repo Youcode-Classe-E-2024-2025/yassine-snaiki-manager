@@ -5,6 +5,7 @@ $routes = [
     "/dashboard"=>"controllers/dashboard.php",
     "/messages"=>"controllers/messages.php",
     "/maketransaction"=>"controllers/transactions.php",
+    "/history"=>"controllers/history.php",
     "/settings"=>"controllers/settings.php",
     "/admin-dashboard"=>"controllers/admin-dashboard.php",
     "/requests"=>"controllers/requests.php",
