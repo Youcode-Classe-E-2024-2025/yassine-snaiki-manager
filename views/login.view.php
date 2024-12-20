@@ -44,11 +44,10 @@
     </a>
 </form>
 <div id="message" class="message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md hidden"></div>
-<?php
-if(isset($message)){
-    echo "<div  class='message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md'>$message</div>"; 
-}
- ?>
+
+<div  class='message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md <?=isset($message) ? '':'hidden'?>'><?=isset($message) ? $message : ''?></div>
+
+
 </div>
 <script src="scripts/login.js"></script>
 <?php require "views/partials/footer.php"?>     

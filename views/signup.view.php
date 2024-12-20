@@ -13,7 +13,7 @@
     </div>
     <h3 class="text-center font-bold text-3xl">Sign Up</h3>
     <form action="" method="POST" class="space-y-4 <?=$signedup ?'hidden':'' ?>">
-        
+    <input type="hidden" name='csrf_token' value="<?=$_SESSION['csrf_token']?>">
         <div>
             <label for="username" class="block text-sm font-medium text-white">User name</label>
             <input 

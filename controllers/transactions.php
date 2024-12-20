@@ -59,6 +59,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             $db->query("INSERT INTO movements(amount,type,user_id) values(?,'w',?)",[$amount,$_SESSION['user_id']]);
             $db->query("INSERT INTO movements(amount,type,user_id) values(?,'d',?)",[$amount,$receiver]);
+            $db->query("INSERT INTO history(amount,type,user_id,receiver_id) values(?,?,?,?)",[$amount,'t',$_SESSION['user_id'],$receiver]);
+            $db->query("INSERT INTO history(amount,type,user_id,receiver_id) values(?,?,?,?)",[$amount,'r',$receiver,$_SESSION['user_id']]);
             $_SESSION['success'] = 'Money was transfered successfuly';
         }else if($balance<$amount && $amount>0){
             $_SESSION['transfererror'] = "not enough balance";

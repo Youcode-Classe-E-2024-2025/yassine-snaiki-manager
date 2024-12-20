@@ -11,6 +11,9 @@
        <a href="<?=$profileName==='Admin' ? '/requests' : '/messages'?>" class=" pl-6 py-1  w-full flex items-center gap-4  transition-colors  <?=isPath('/requests') || isPath('/messages') ? 'bg-gray-600 text-white' : 'bg-slate-200 hover:bg-gray-600 hover:text-white' ?>">
        <img src="images/messages.png" alt="messages" class="w-5">    
        <?=$profileName==='Admin' ? 'Requests' : 'Messages'?></a>
+       <a href="/history" class=" pl-6 py-1  w-full flex items-center gap-4  transition-colors  <?=isPath('/history') ? 'bg-gray-600 text-white' : 'bg-slate-200 hover:bg-gray-600 hover:text-white' ?> <?=$_SESSION['role'] === 'a' ? 'hidden' : ""?>">
+       <img src="images/settings.png" alt="settings" class="w-5">    
+       history</a>
        <a href="/settings" class=" pl-6 py-1  w-full flex items-center gap-4  transition-colors  <?=isPath('/settings') ? 'bg-gray-600 text-white' : 'bg-slate-200 hover:bg-gray-600 hover:text-white' ?> <?=$_SESSION['role'] === 'a' ? 'hidden' : ""?>">
        <img src="images/settings.png" alt="settings" class="w-5">    
        Settings</a>

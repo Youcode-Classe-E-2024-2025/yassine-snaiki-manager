@@ -1,5 +1,5 @@
 <?php require "views/partials/head.php" ?>
-<div class="flex h-[100dvh]">
+<div class="flex min-h-[100dvh]">
 <?php require "views/partials/sidebar.php" ?>
 <main class=" basis-full overflow-auto">
     <h2 class="text-3xl font-semibold pl-20 pt-5">Requests</h2>
