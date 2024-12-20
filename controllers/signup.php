@@ -10,6 +10,7 @@ if(isset($_SESSION['signedup'])) {
 global $db;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
+    
     $username = trim(htmlspecialchars($_POST['username']));
     $email = trim(htmlspecialchars($_POST['email']));
     $password = trim(htmlspecialchars($_POST['password']));
