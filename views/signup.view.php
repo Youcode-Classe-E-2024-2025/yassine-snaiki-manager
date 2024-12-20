@@ -13,6 +13,7 @@
     </div>
     <h3 class="text-center font-bold text-3xl">Sign Up</h3>
     <form action="" method="POST" class="space-y-4 <?=$signedup ?'hidden':'' ?>">
+        
         <div>
             <label for="username" class="block text-sm font-medium text-white">User name</label>
             <input 
@@ -58,11 +59,7 @@
             />
         </div>
         <div class="flex items-center justify-between">
-            <label class="flex items-center text-sm">
-                <input type="checkbox" class="w-4 h-4 text-indigo-500 border-gray-300 rounded focus:ring-2 focus:ring-indigo-400">
-                <span class="ml-2 text-gray-600">Remember Me</span>
-            </label>
-            <a href="#" class="text-sm text-indigo-500 hover:underline">Forgot Password?</a>
+    
         </div>
         <button 
         type="submit" 
@@ -75,6 +72,7 @@
         Already have an account
     </a>
 </form>
+<div id="message" class="message text-red-600 bg-white text-lg mt-4 flex justify-center py-2 rounded-md shadow-md hidden"></div>
 </div>
 <script src="scripts/signup.js"></script>
 <?php require "views/partials/footer.php"?>     

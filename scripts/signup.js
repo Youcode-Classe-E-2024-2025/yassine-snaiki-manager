@@ -1,6 +1,11 @@
 const signupForm = document.querySelector('form');
 const checked = document.querySelector('#checked');
 
+const messages = document.querySelectorAll('.message');
+
+setTimeout(()=>{
+    messages.forEach(message=>message?.classList.add('hidden'));
+},4000);
 
 
 
@@ -11,6 +16,10 @@ signupForm.addEventListener('submit',e=>{
     const email = data.get('email');
     const password = data.get('password');
     const confirmPassword = data.get('confirm_password');
+    if (!validateUserName(userName)) {
+        showMessage("UserName must be at least 4 characters long.");
+        return;
+    }
     if (!validateEmail(email)) {
         showMessage("Invalid email format. Please enter a valid email.");
         return;
@@ -19,12 +28,12 @@ signupForm.addEventListener('submit',e=>{
         showMessage("Password must be at least 4 characters long.");
         return;
     }
-    if (!validateUserName(userName)) {
-        showMessage("UserName must be at least 4 characters long.");
+    if (password !== confirmPassword) {
+        showMessage("password confirmation doesn't match password");
         return;
     }
-    signupForm.classList.add('hidden');
-    checked.classList.remove('hidden')
+    
+
     signupForm.submit();
 })
 

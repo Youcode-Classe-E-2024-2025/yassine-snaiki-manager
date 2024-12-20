@@ -32,7 +32,7 @@
            echo "<li class='flex items-center text-xl font-semibold bg-cyan-600 px-10 justify-between'>
                  No movements yet
                  </li>";
-    foreach($movements as $movement) : ?>
+    foreach(array_reverse($movements) as $movement) : ?>
             <li class="flex items-center text-xl font-semibold bg-cyan-600 px-10 justify-between">
                 <p class="<?=$movement['type']==='d' ? 'text-green-300':'text-red-300'?>">$<?=$movement['amount']?></p>
                 <p><?=$movement['created_at']?></p> 

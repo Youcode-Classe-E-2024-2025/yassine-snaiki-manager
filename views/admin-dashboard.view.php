@@ -1,7 +1,7 @@
 <?php require "views/partials/head.php" ?>
 <div class="flex h-[100dvh]">
 <?php require "views/partials/sidebar.php" ?>
-<main class=" basis-full relative">
+<main class=" basis-full relative overflow-auto">
 
 <form action="" method ="POST" class="form-message absolute bottom-1/2 translate-y-1/2 right-1/2 translate-x-1/2  bg-slate-600 w-[60%] flex flex-col p-4 rounded-md hidden">
 <input type="hidden" id="hidden" name="hidden" value="message">
